@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Success Card -->
+    <div class="card shadow-sm border-success">
+        <div class="card-header bg-success text-white">
+            <h4 class="card-title">Campaign Sent Successfully!</h4>
+        </div>
+        <div class="card-body">
+            <h5 class="card-text text-success">Your email campaign has been successfully sent.</h5>
+            <div class="alert alert-success" role="alert">
+                <strong>Success!</strong> Emails for the campaign with the subject <strong>"{{ campaign.subject }}"</strong> have been sent to all recipients.
+            </div>
+            <p><strong>Campaign ID:</strong> {{ campaign.id }}</p>
+
+            <!-- Simulated progress bar (Optional, to make it look more dynamic) -->
+            <div class="progress mt-3">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            
+            <div class="mt-4">
+                <a href="{% url 'campaign_list' %}" class="btn btn-primary btn-lg">Back to Campaign List</a>
+                <a href="{% url 'send_campaign' campaign.id %}" class="btn btn-success btn-lg">Send Another Campaign</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

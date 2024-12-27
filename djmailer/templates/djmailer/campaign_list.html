@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Email Campaigns</h1>
+<a href="{% url 'create_campaign' %}" class="btn btn-primary mb-3">Create New Campaign</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Email List</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for campaign in campaign_list %}
+        <tr>
+            <td>{{ campaign.subject }}</td>
+            <td>{{ campaign.email_list.name }}</td>
+            <td>{{ campaign.created_at }}</td>
+            <td>
+                <a href="{% url 'campaign_detail' campaign.id %}" class="btn btn-info btn-sm">View</a>
+                <a href="{% url 'send_campaign' campaign.id %}" class="btn btn-success btn-sm">Send</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

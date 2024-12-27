@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Page Header -->
+    <div class="mb-4">
+        <h1 class="fw-bold">Create Email List</h1>
+        <p class="text-muted">Fill out the form below to create a new email list for your campaigns.</p>
+    </div>
+
+    <!-- Form Section -->
+    <div class="card shadow-sm p-4">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="d-flex justify-content-between mt-3">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <a href="{% url 'email_list' %}" class="btn btn-secondary">Back to Email Lists</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

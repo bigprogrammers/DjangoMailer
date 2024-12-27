@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Create Email Campaign</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Create Campaign</button>
+</form>
+<a href="" class="btn btn-secondary mt-3">Back to Campaigns</a>
+{% endblock %}

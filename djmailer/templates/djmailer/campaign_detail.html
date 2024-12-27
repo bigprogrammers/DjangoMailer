@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Campaign: {{ campaign.subject }}</h1>
+<p><strong>Email List:</strong> {{ campaign.email_list.name }}</p>
+<p><strong>Content:</strong></p>
+<div class="border p-3">
+    {{ campaign.content }}
+</div>
+<a href="" class="btn btn-success mt-3">Send Campaign</a>
+<a href="{% url 'campaign_list' %}" class="btn btn-secondary mt-3">Back to Campaigns</a>
+{% endblock %}

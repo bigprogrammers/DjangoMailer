@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add Subscriber</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Add Subscriber</button>
+</form>
+<a href="{% url 'email_list' %}" class="btn btn-secondary mt-3">Back to Email Lists</a>
+{% endblock %}
